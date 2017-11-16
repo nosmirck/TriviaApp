@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaApp.Views.MainPage"
+             Title="{Binding Title}">
+	<Grid Padding="20, 100, 20, 100" HorizontalOptions="Center" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Label Grid.Row="0" 
+			   Text="Welcome to Trivia App Test!"
+			   VerticalOptions="Start" 
+			   HorizontalTextAlignment="Center" />
+		<Button Grid.Row="1"
+				Text="Play a Game!"
+				VerticalOptions="Center" 
+				Command="{Binding PlayNewGameCommand}"/>
+		<Label Grid.Row="2" 
+			   Text="Created by: Luis Pulido"
+			   VerticalOptions="End"
+			   HorizontalTextAlignment="Center"/>
+	</Grid>
+
+</ContentPage>

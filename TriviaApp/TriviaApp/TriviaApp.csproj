@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="RESTClient.NET" Version="0.6.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.77107" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.0.0.168-pre" />
+  </ItemGroup>
+
+</Project>
