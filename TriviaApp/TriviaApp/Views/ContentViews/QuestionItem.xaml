@@ -23,7 +23,9 @@
 				ItemsSource="{Binding Answers}"
 				SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}"
 				ItemSelected="HandleItemSelected"
-				VerticalOptions="CenterAndExpand">
+				VerticalOptions="CenterAndExpand"
+				HasUnevenRows="true"
+				SeparatorVisibility="None">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
