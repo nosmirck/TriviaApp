@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+	xmlns:converters="clr-namespace:TriviaApp.Views.Converters"
+	x:Class="TriviaApp.Views.ContentViews.QuestionItem">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<converters:InvertBooleanConverter
+				x:Key="InvertBooleanConverter" />
+			<converters:BooleanToColorConverter
+				x:Key="BooleanToColorConverter" />
+		</ResourceDictionary>
+	</ContentView.Resources>
+	<ContentView.Content>
+		<StackLayout
+			VerticalOptions="CenterAndExpand"
+			Spacing="20">
+			<Label
+				Text="{Binding Question.QuestionText}" />
+			<ListView
+				ItemsSource="{Binding Answers}"
+				SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}"
+				ItemSelected="HandleItemSelected"
+				VerticalOptions="CenterAndExpand">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<BoxView
+									IsVisible="{Binding IsSelected}"
+									BackgroundColor="{Binding IsCorrect, Converter={StaticResource BooleanToColorConverter}}" />
+								<Label
+									Text="{Binding AnswerText}" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

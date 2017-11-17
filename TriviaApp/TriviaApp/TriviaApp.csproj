@@ -12,4 +12,13 @@
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.0.0.168-pre" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\ContentViews\" />
+    <Folder Include="Views\Pages\" />
+    <Folder Include="Views\Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Behaviors\BindableBehavior.cs" />
+    <Compile Remove="Views\Behaviors\EventToCommandBehavior.cs" />
+  </ItemGroup>
 </Project>

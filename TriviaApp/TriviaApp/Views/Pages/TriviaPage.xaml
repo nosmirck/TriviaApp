@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+	xmlns:cv="clr-namespace:TriviaApp.Views.ContentViews"
+	xmlns:converters="clr-namespace:TriviaApp.Views.Converters"
+	prism:ViewModelLocator.AutowireViewModel="True"
+	x:Class="TriviaApp.Views.TriviaPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:InvertBooleanConverter
+				x:Key="InvertBooleanConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<Grid
+		Padding="20, 50">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Label
+			Grid.Row="0"
+			Text="{Binding QuestionCounter}"
+			HorizontalOptions="End" />
+		<cv:QuestionItem
+			Grid.Row="1"
+			VerticalOptions="CenterAndExpand"
+			BindingContext="{Binding CurrentQuestion}" />
+		<StackLayout
+			Grid.Row="2"
+			Orientation="Horizontal"
+			HorizontalOptions="CenterAndExpand">
+			<Button
+				Text="Prev"
+				Command="{Binding PrevQuestionCommand}"
+				HorizontalOptions="Start" />
+			<Button
+				IsVisible="{Binding IsLastQuestion, Converter={StaticResource InvertBooleanConverter}}"
+				Text="Next"
+				Command="{Binding NextQuestionCommand}"
+				HorizontalOptions="End" />
+			<Button
+				IsVisible="{Binding IsLastQuestion}"
+				Text="Finish"
+				Command="{Binding ShowResultsCommand}"
+				HorizontalOptions="End" />
+		</StackLayout>
+	</Grid>
+</ContentPage>

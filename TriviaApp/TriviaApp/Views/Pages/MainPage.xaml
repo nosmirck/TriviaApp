@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:converters="clr-namespace:TriviaApp.Views.Converters"
+	x:Class="TriviaApp.Views.MainPage"
+	Title="{Binding Title}">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:InvertBooleanConverter
+				x:Key="InvertBooleanConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<Grid
+		Padding="20, 100, 20, 100"
+		HorizontalOptions="Center">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Label
+			IsVisible="{Binding IsResultsShowing, Converter={StaticResource InvertBooleanConverter}}"
+			Grid.Row="0"
+			Text="Welcome to Trivia App!"
+			FontSize="30"
+			VerticalOptions="Start"
+			HorizontalTextAlignment="Center" />
+		<StackLayout
+			Grid.Row="1">
+			<StackLayout
+				IsVisible="{Binding IsResultsShowing}">
+				<Label
+					Text="Your Results:"
+					FontSize="30"
+					FontAttributes="Bold" />
+				<StackLayout
+					Orientation="Horizontal">
+					<Label
+						Text="{Binding Score}"
+						FontSize="35" />
+					<Label
+						Text="/"
+						FontSize="35" />
+					<Label
+						Text="{Binding Count}"
+						FontSize="35" />
+				</StackLayout>
+			</StackLayout>
+			<Button
+				Text="{Binding PlayGameButtonText}"
+				VerticalOptions="Center"
+				Command="{Binding PlayNewGameCommand}" />
+		</StackLayout>
+		<Label
+			Grid.Row="2"
+			Text="Created by: Luis Pulido"
+			VerticalOptions="End"
+			HorizontalTextAlignment="Center" />
+	</Grid>
+</ContentPage>
