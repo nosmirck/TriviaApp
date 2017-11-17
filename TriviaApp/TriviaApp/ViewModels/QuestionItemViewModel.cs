@@ -28,7 +28,7 @@ namespace TriviaApp.ViewModels
 		public Answer SelectedAnswer
 		{
 
-			get { return _selectedAnswer; }
+			get { return null; }
 			set
 			{
 				if (value != null)
@@ -39,18 +39,18 @@ namespace TriviaApp.ViewModels
 						_selectedAnswer = value;
 						_selectedAnswer.IsSelected = true;
 						Answers[Answers.IndexOf(_selectedAnswer)] = _selectedAnswer;
-						SetProperty(ref _selectedAnswer, value);
 					}
-					else
-					{
-						SetProperty(ref _selectedAnswer, SelectedAnswer);
-					}
+					RaisePropertyChanged();
 				}
 			}
 		}
+		public Answer GetSelectedAnswer()
+		{
+			return _selectedAnswer;
+		}
+
 		public bool IsAnswerSelected
 		{
-
 			get { return _isAnswerSelected; }
 			set { SetProperty(ref _isAnswerSelected, value); }
 		}

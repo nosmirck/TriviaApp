@@ -10,10 +10,5 @@ namespace TriviaApp.Views.ContentViews
 		{
 			InitializeComponent();
 		}
-		public void HandleItemSelected(object sender, SelectedItemChangedEventArgs e)
-		{
-			if (e.SelectedItem == null) return;
-			((ListView)sender).SelectedItem = null;
-		}
 	}
 }

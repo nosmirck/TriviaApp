@@ -69,7 +69,7 @@ namespace TriviaApp.ViewModels
 			int score = 0;
 			foreach (QuestionItemViewModel questionItem in Questions)
 			{
-				if (questionItem.SelectedAnswer != null && questionItem.SelectedAnswer.IsCorrect)
+				if (questionItem.GetSelectedAnswer() != null && questionItem.GetSelectedAnswer().IsCorrect)
 				{
 					score++;
 				}
