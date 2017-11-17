@@ -1,5 +1,9 @@
 ﻿<Properties StartupConfiguration="{F2980C3A-5893-4D9B-81BE-C17706992829}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TriviaApp/TriviaApp/Client/Repositories/TriviaRepository.cs">
+    <Files>
+      <File FileName="TriviaApp/TriviaApp/Client/Repositories/TriviaRepository.cs" Line="23" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
